@@ -11,11 +11,12 @@ export default function LandingPage() {
     const [data, setData] = useState(null);
     const [isLoaded, setisLoaded] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [query, setQuery] = useState("One Piece");
+    const [query, setQuery] = useState("school");
     
     // Modal
     const [modalShow, setModalShow] = useState(false);
     const [modalItem, setModalItem] = useState(null);
+    
     
     useEffect(() => {
         const fetchData = async (query) => {
@@ -34,6 +35,11 @@ export default function LandingPage() {
                 setData(response.data);
                 setisLoaded(true);
                 setIsLoading(false);
+
+                // Cache gambar-gambar dari respons
+                const imageCache = await caches.open('my-image-cache');
+                const imageUrls = response.data.d.map(item => item.i.imageUrl);
+                await imageCache.addAll(imageUrls);
             }
         } catch (err) {
         console.log(err);
