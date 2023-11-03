@@ -3,7 +3,7 @@ import "./index.css";
 
 export default function Modal({ isShow, data, onCancel }) {
     if (!data || !data.i || !data.i.imageUrl) {
-        const imageUrl = `https://source.unsplash.com/720x720?${data && data.l}`;
+        const imageUrl = `https://source.unsplash.com/720x1280?${data && data.l}`;
         return (
             <div className={!isShow ? "hidden" : ""} datacy="modal-delete">
                 <div className="modal-bg" onClick={onCancel}></div>

@@ -4,7 +4,7 @@ import "./index.css";
 export default function Card({ data, onClick }) {
     // Tambahkan pengecekan untuk data, data.i, dan data.i.imageUrl
     if (!data || !data.i || !data.i.imageUrl) {
-        const imageUrl = `https://source.unsplash.com/720x720?${data.l}`;
+        const imageUrl = `https://source.unsplash.com/200x300?${data.l}`;
         
         return (
             <div className="card" onClick={onClick}>
